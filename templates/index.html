@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>ML API</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      button:hover {
+        background-color: orange;
+        box-shadow: 3px 3px 5px grey;
+      }
+      h1 {
+        color: green;
+        
+      }
+      form {
+        box-sizing: border-box;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: hsl(0, 0%, 100%);
+        border: 4px solid hsl(0, 0%, 90%);
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        gap: 1rem;
+      }
+      input[type="text"],
+      button {
+        font: 1.25rem / 1.5 sans-serif;
+        display: block;
+        box-sizing: border-box;
+        width: 50%;
+        padding: 0.1rem 0.15rem;
+      }
+      label {
+        color: #b4886b;
+        font-weight: bold;
+        width: 130px;
+        float: left;
+        margin-right: 20px;
+      }
+      .center {
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;
+      }
+      label:after {
+        content: ": ";
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login">
+      <div class="image">
+        <h1
+          style="
+            background-color: #8cf00a;
+            text-align: center;
+            
+          "
+        >
+        <image src='C:\Users\KIIT\Desktop\Crop\templates\logo.jpg' align='right'>
+          Crop Prediction
+        </h1>
+      </div>
+      <table>
+        <form action="{{ url_for('predict')}}" method="post">
+          <label>Nitrogen</label>
+          <input
+            type="text"
+            name="nitrogen"
+            placeholder="NITROGEN"
+            required="required"
+          />
+          <label>Phosphorus</label>
+          <input
+            type="text"
+            name="phosphorus"
+            placeholder="PHOSPHORUS"
+            required="required"
+          />
+          <label>Potassium</label>
+          <input
+            type="text"
+            name="potassium"
+            placeholder="POTASSIUM"
+            required="required"
+          />
+          <label>Temperature</label>
+          <input
+            type="text"
+            name="temperature"
+            placeholder="TEMPERATURE"
+            required="required"
+          />
+          <label>Humidity</label>
+          <input
+            type="text"
+            name="humidity"
+            placeholder="HUMIDITY"
+            required="required"
+          />
+          <label>PH</label>
+          <input type="text" name="ph" placeholder="PH" required="required" />
+          <label>Rainfall</label>
+          <input
+            type="text"
+            name="rainfall"
+            placeholder="RAINFALL"
+            required="required"
+          />
+          <label></label>
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Predict
+          </button>
+        </form>
+      </table>
+
+      <br />
+      <br />
+      <h1>{{ prediction_text }}</h1>
+    </div>
+  </body>
+</html>
